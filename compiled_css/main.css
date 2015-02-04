@@ -224,3 +224,10 @@ h3 {
   opacity: 0.01;
   max-width: 1px;
 }
+.delay-alert-enter {
+  max-height: 0;
+  transition: max-height 0.4s step-end;
+}
+.delay-alert-enter.delay-alert-enter-active {
+  max-height: 500px;
+}

@@ -13,7 +13,8 @@
 @box-shot-btn-color-bg: #999;
 @box-shot-btn-color: #FFF;
 @box-shot-btn-height: 2.5 * @font-size-base;
-@box-shot-height: 236px + @box-shot-btn-height;
+@box-shot-image-height: 236px;
+@box-shot-height: @box-shot-image-height  + @box-shot-btn-height;
 
 // Mixins
 // ------
@@ -134,9 +135,17 @@ h3{
 .slide-fade-leave {
 	opacity: 1;
 	transition: opacity .4s ease, max-width .4s linear;
-	max-width: 500px;
+	max-width: 500px; // large magic number. Careful.
 	&.slide-fade-leave-active{
 		opacity: 0.01;
 		max-width: 1px;
+	}
+}
+
+.delay-alert-enter{
+	max-height: 0;
+	transition: max-height .4s step-end;
+	&.delay-alert-enter-active{
+		max-height: 500px; // large magic number. Careful.
 	}
 }
