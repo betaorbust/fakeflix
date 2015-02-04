@@ -1,0 +1,226 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #555555;
+  background-color: #f9f9f9;
+}
+.content {
+  margin: 25px auto 100px;
+  max-width: 800px;
+  width: 100%;
+}
+h1,
+h2,
+h3 {
+  margin: 10.66666667px 0 4px 0;
+}
+h1 {
+  font-size: 32px;
+}
+h2 {
+  font-size: 28.8px;
+}
+h3 {
+  font-size: 25.6px;
+}
+.movie-set .movie-set-list {
+  overflow-x: auto;
+  white-space: nowrap;
+  width: 100%;
+}
+.movie-set .movie-set-list:before,
+.movie-set .movie-set-list:after {
+  content: " ";
+  display: table;
+}
+.movie-set .movie-set-list:after {
+  clear: both;
+}
+.movie-set .movie-set-list .box-shot {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.movie-set .movie-set-list .box-shot:last-child {
+  margin-right: 0;
+}
+.movie-set .movie-set-list .box-shot:first-child {
+  margin-left: 0;
+}
+.box-shot {
+  display: inline-block;
+  font-size: 0;
+  height: 276px;
+  position: relative;
+  padding-bottom: 40px;
+}
+.box-shot:hover .box-shot-action {
+  bottom: 0;
+  opacity: 1;
+}
+.box-shot .box-shot-action {
+  bottom: 40px;
+  cursor: pointer;
+  height: 40px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  transition: bottom .2s, opacity 0.2s;
+  width: 100%;
+  z-index: 1;
+  color: #ffffff;
+  background-color: #999999;
+  border: none;
+  font-size: 16px;
+}
+.box-shot .box-shot-action:focus {
+  outline: none;
+}
+.box-shot .box-shot-image {
+  position: relative;
+  height: 100%;
+  z-index: 2;
+}
+.slide-fade-enter {
+  opacity: 0.01;
+  max-width: 1px;
+  transition: opacity 0.4s ease, max-width 0.4s linear;
+}
+.slide-fade-enter.slide-fade-enter-active {
+  opacity: 1;
+  max-width: 50px;
+}
+.slide-fade-leave {
+  opacity: 1;
+  transition: opacity 0.4s ease, max-width 0.4s linear;
+  max-width: 500px;
+}
+.slide-fade-leave.slide-fade-leave-active {
+  opacity: 0.01;
+  max-width: 1px;
+}
