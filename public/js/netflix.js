@@ -62,9 +62,15 @@
 					<BoxShot key={movie.id} movie={movie} action={this.props.action} />
 				);
 			}.bind(this));
+
+			// Todo: ths should be a class.
+			var emptyAlert = displayedMovies.length === 0 ? <p key="this.props.title">Looks like you need to add some titles!</p> : '';
 			return(
 				<section className="movie-set">
 					<h2>{this.props.title}</h2>
+					<ReactCSSTransitionGroup transitionName="delay-alert" transitionLeave={false}>
+						{emptyAlert}
+					</ReactCSSTransitionGroup>
 					<ul className="movie-set-list">
 						<ReactCSSTransitionGroup transitionName="slide-fade">
 							{displayedMovies}
@@ -74,7 +80,6 @@
 			);
 		}
 	});
-
 	/**
 	 * A set of movie titles.
 	 */
@@ -84,7 +89,7 @@
 			return (
 				<section>
 					<h3>{this.props.title}</h3>
-					<span>{titles.join(', ')}</span>
+					<span>{titles.length>0 ? titles.join(', ') : 'There\'s nothing in your list!'}</span>
 				</section>
 			);
 		}
