@@ -1,48 +1,52 @@
 /* jshint strict: false */
 /*global module: true, require: true */
 module.exports = function(grunt) {
-  require('jit-grunt')(grunt);
+	require('jit-grunt')(grunt);
+	var path = require('path');
+	var STYLE_SRC_LOCATIONS = [
+		'public/styles/reset.css',
+		'public/styles/{,**/}*.less'
+	];
+	var STYLE_SHEET_LOCATION = 'public/compiled_css/main.css';
+	var SERVING_ROOT = 'public';
+	grunt.initConfig({
+		less: {
+			development: {
+				options: {
+				  // compress: true,
+				  // sourceMap: true
+				},
+				files: [{
+					src: STYLE_SRC_LOCATIONS,
+					dest: STYLE_SHEET_LOCATION,
+				}]
+			}
+		},
+		watch: {
+			styles: {
+				files: STYLE_SRC_LOCATIONS,
+				tasks: ['clean', 'less'],
+				options: {
+					nospawn: true
+				}
+			}
+		},
+		copy: {
+			dist: {
+				files: [{
+					expand: true,
+					cwd: SERVING_ROOT,
+					src: ['{,**/}*'],
+					dest: 'dist/'
+				}]
+			}
+		},
+		clean: {
+			all: ['public/compiled_css/', 'dist/']
+		}
+	});
 
-  var STYLE_SRC_LOCATIONS = [
-      'public/styles/reset.css',
-      'public/styles/{,**/}*.less'
-    ];
-  var STYLE_SHEET_LOCATION = 'public/compiled_css/main.css';
-  grunt.initConfig({
-    less: {
-      development: {
-        options: {
-          // compress: true,
-          // sourceMap: true
-        },
-        files: [{
-          src: STYLE_SRC_LOCATIONS,
-          dest: STYLE_SHEET_LOCATION,
-        }]
-      }
-    },
-    watch: {
-      styles: {
-        files: STYLE_SRC_LOCATIONS,
-        tasks: ['less'],
-        options: {
-          nospawn: true
-        }
-      }
-    },
-    copy: {
-      dist:{
-        files: [{
-          expand: true,
-          cwd: 'public',
-          src: ['{,**/}*'],
-          dest: 'dist/'
-        }]
-      }
-    }
-  });
-
-  grunt.registerTask('default', ['less']);
-  grunt.registerTask('dev', ['less', 'watch']);
-  grunt.registerTask('dist', ['less', 'copy']);
+	grunt.registerTask('default', ['clean', 'less']);
+	grunt.registerTask('dev', ['clean', 'less', 'watch']);
+	grunt.registerTask('dist', ['clean', 'less', 'copy']);
 };
