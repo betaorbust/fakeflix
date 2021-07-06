@@ -1,9 +1,4 @@
-Installation, Build, and Start
-------------------------------
+Netflix Interview Project
+=========================
 
-```
-npm install
-npm run build
-npm start
-```
-
+## Archived
